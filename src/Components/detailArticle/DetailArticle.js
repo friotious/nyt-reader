@@ -1,4 +1,5 @@
 import React from 'react';
+import './DetailArticle.css'
 
 const DetailArticle = () => {
     return (
