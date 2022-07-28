@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from "react";
 import './App.css';
+import { Routes, Route, Navigate } from "react-router-dom";
+import Nav from '../Components/nav/Nav'
+import CategoryDD from './sectionSelect/SectionSelect'
+import ArticleContainer from '../Components/articleContainer/ArticleContainer'
 
-function App() {
+const [section, setSection] = useState('home')
+const [detail, setDetail] = useState([])
+
+ useEffect(() => {
+  getArticles(section).then(data => setSection)
+ })
+  
+
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <C
+      <ArticleContainer />
     </div>
   );
 }
