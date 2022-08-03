@@ -6,9 +6,9 @@ import './ArticleListContainer.css'
 const ArticleListContainer = ({articles, section}) => {
 
 
-    const articleList = articles.map((article, index) => {
-        return  <Link to={`/article-detail/${article.title}`} id={article.title} key={index} style={{ textDecoration: "none" }}>
-                    <ListArticle article={article} key={index} />
+    const articleList = articles.map((article) => {
+        return  <Link to={`/article-detail/${article.id}`} id={article.id} key={article.id} style={{ textDecoration: "none" }}>
+                    <ListArticle article={article} id={article.id} key={article.id} />
                 </Link>
     })
     return (
