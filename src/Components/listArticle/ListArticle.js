@@ -1,9 +1,26 @@
-import React from 'react';
-import './ListArticle'
+import React, { useState } from 'react';
+import './ListArticle.css'
 
-const ListArticle = () => {
-    return (
-        <div className='ListArticle'></div>
+const ListArticle = ({article}) => {
+    const [section, setSection] = useState('home')
+   const checkForImage = () =>  {
+    if (article.multimedia === null) {
+        return <p>no image available</p>
+    } else {
+        return <img className='la-img' src={article.multimedia[1].url}></img>
+    }
+} 
+
+    
+
+    
+ return (
+        <div className='list-article'>
+        
+            <p className='la-title'>{article.title}</p>
+            
+            {checkForImage()}
+        </div>
     );
 }
 
