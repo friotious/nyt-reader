@@ -9,6 +9,7 @@ const sections = ["world", "us", "politics", "nyregion", "arts",
 
 const SectionSelect = ({setSection}) => {
     const sectionList = sections.map((section, index) => {
+        console.log(section, 'section')
         return <button className='section-list-button' onClick={() => {setSection(section)}} key={index}>{section}</button>
     })
     return (

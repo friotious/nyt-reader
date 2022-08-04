@@ -8,14 +8,14 @@ import ArticleListContainer from '../Components/articleListContainer/ArticleList
 import DetailArticle from "./detailArticle/DetailArticle";
 import { v4 as uuidv4 } from 'uuid';
 
-const apiKey = process.env.REACT_APP_API_KEY
 const App = () => {
-  let { articleId } = useParams()
+  const apiKey = process.env.REACT_APP_API_KEY
   const [section, setSection] = useState('home')
   const [articles, setArticles] = useState([])
   const [detail, setDetail] = useState({})
+  let { articleId } = useParams()
 
-  // filter API data
+  // filter APIcall data
   const articleCleaner = data => {
     return data.map(article => {
       return {
@@ -30,6 +30,7 @@ const App = () => {
     }
     })
   }
+  
   //API call
   const getArticles = (section) => {
     return fetch(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${apiKey}`)
@@ -47,15 +48,13 @@ const App = () => {
 
 useEffect(() => {
   setDetail(getDetailArticle(articleId))
-
 }, [articleId])
 
  useEffect(() => {
   getArticles(section)
- }, [])
+ }, [section])
 
 const getDetailArticle = () => {
-  console.log(articles.filter(article => article.id === articleId))
   return articles.filter(article => article.id === articleId)
 }
 
