@@ -13,7 +13,7 @@ const App = () => {
   const [section, setSection] = useState('home')
   const [articles, setArticles] = useState([])
   const [detail, setDetail] = useState({})
-  let { articleId } = useParams()
+  let { articleId, sectionId } = useParams()
 
   // filter APIcall data
   const articleCleaner = data => {
@@ -45,6 +45,7 @@ const App = () => {
         throw new Error();
       }
       }).then(res => {
+        console.log(res.results)
         setArticles(articleCleaner(res.results)) 
       })
       .catch(err => alert(err));
@@ -70,7 +71,12 @@ const getDetailArticle = () => {
         <Route path='/' 
                element={< ArticleListContainer 
                articles={articles} 
-               section={section} 
+               section={'home'} 
+               setDetail={setDetail}/>} />
+        <Route path='/:sectionId' 
+               element={< ArticleListContainer 
+               articles={articles} 
+               section={sectionId} 
                setDetail={setDetail}/>} />
         <Route path='article-detail/:articleId' 
                element={<DetailArticle detail={articles}/>}
