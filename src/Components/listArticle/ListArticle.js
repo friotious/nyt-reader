@@ -7,7 +7,7 @@ const ListArticle = ({article}) => {
     if (article.multimedia === null) {
         return <p>no image available</p>
     } else {
-        return <img className='la-img' src={article.multimedia[1].url}></img>
+        return <img className='la-img' src={article.multimedia[1].url} alt={article.multimedia[1].caption}></img>
     }
 } 
 

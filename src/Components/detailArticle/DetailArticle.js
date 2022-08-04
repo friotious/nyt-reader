@@ -10,7 +10,7 @@ const DetailArticle = ({detail}) => {
         if (art.multimedia === null) {
             return <p>no image available</p>
         } else {
-            return <img className='da-img' src={art.multimedia[0].url}></img>
+            return <img className='da-img' src={art.multimedia[0].url} alt={art.multimedia[0].caption}></img>
         }
     } 
     const details = detail.filter(d => d.id === articleId)
