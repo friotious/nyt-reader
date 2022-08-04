@@ -6,10 +6,11 @@ import SectionSelect from './sectionSelect/SectionSelect'
 import ArticleListContainer from '../Components/articleListContainer/ArticleListContainer'
 //import {getArticles, testCall } from "../apiCalls";
 import DetailArticle from "./detailArticle/DetailArticle";
+import { v4 as uuidv4 } from 'uuid';
 
 const apiKey = process.env.REACT_APP_API_KEY
 const App = () => {
-  let { articleDetail } = useParams()
+  let { articleId } = useParams()
   const [section, setSection] = useState('home')
   const [articles, setArticles] = useState([])
   const [detail, setDetail] = useState({})
@@ -17,9 +18,8 @@ const App = () => {
   // filter API data
   const articleCleaner = data => {
     return data.map(article => {
-      console.log(article.section, 'test')
       return {
-        id: Date.now(),
+        id: uuidv4(),
         section: article.section,
         title: article.title,
         abstract: article.abstract,
@@ -45,50 +45,34 @@ const App = () => {
       .catch(err => alert(err));
   }
 
-  // const fetch = () => {
-  //   .then(res => {
-  //     setArticles(res)
-  //   })
-  // }
+useEffect(() => {
+  setDetail(getDetailArticle(articleId))
+
+}, [articleId])
 
  useEffect(() => {
   getArticles(section)
-  // console.log('test useEffect')
-  // console.log(testCall.results, 'results?')
-  // setArticles(testCall.results)
  }, [])
 
-//  useEffect(() => {
-//     fetch()
-//  }, [section])
-// element={< DetailArticle  detail={detail}/>} 
-
+const getDetailArticle = () => {
+  console.log(articles.filter(article => article.id === articleId))
+  return articles.filter(article => article.id === articleId)
+}
 
   return (
     <div className="App">
       <Nav />
       <SectionSelect setSection={setSection}/>
       <Routes>
-        <Route path='/' element={< ArticleListContainer articles={articles} section={section} setDetail={setDetail}/>} />
-        <Route path='article-detail/:articleDetail' 
-          render={({match}) => {
-            const getDetailArticle = () => {
-
-              
-               articles.find(article => {
-                  console.log(article.title, 'title', match.params.id, 'id')
-
-                  return article.title === articleDetail
-
-                }
-              )
-
-            }
-            console.log(getDetailArticle())
-            return (
-              <DetailArticle detail={getDetailArticle()}/>
-            )
-          }} />
+        <Route path='/' 
+               element={< ArticleListContainer 
+               articles={articles} 
+               section={section} 
+               setDetail={setDetail}/>} />
+        <Route path='article-detail/:articleId' 
+               element={<DetailArticle detail={articles}/>}
+            
+          />
       </Routes>
     </div>
   );
