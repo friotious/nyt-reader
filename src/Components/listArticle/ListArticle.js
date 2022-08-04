@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ListArticle.css'
 
 const ListArticle = ({article}) => {
+    const [section, setSection] = useState('home')
    const checkForImage = () =>  {
     if (article.multimedia === null) {
         return <p>no image available</p>
@@ -15,9 +16,9 @@ const ListArticle = ({article}) => {
     
  return (
         <div className='list-article'>
+        
             <p className='la-title'>{article.title}</p>
-            <p className='la-abstract'>{article.abstract}</p>
-            <p className='la-byline' >{article.byline}</p>
+            
             {checkForImage()}
         </div>
     );

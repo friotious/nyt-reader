@@ -1,6 +1,6 @@
 import React from 'react';
 import ListArticle from '../listArticle/ListArticle';
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import './ArticleListContainer.css'
 
 const ArticleListContainer = ({articles, section}) => {
@@ -17,6 +17,7 @@ const ArticleListContainer = ({articles, section}) => {
             <div className='list-container'>
                 {articleList}
             </div>
+            <Outlet />
         </>
     );
 }
