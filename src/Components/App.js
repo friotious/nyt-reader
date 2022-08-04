@@ -26,7 +26,11 @@ const App = () => {
         url: article.url,
         byline: article.byline,
         multimedia: article.multimedia,
-        shortUrl: article.short_url
+        shortUrl: article.short_url,
+        des_facet: article.des_facet,
+        org_facet: article.org_facet,
+        per_facet: article.per_facet,
+        geo_facet: article.geo_facet
     }
     })
   }
