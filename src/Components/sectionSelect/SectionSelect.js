@@ -12,7 +12,11 @@ const sections = ["world", "us", "politics", "nyregion", "arts",
 const SectionSelect = ({setSection}) => {
     const sectionList = sections.map(section => {
         return  <Link to={`/${section}`} id={section} key={section} style={{ textDecoration: "none" }}>
-                    <button className='section-list-button' onClick={() => {setSection(section)}} key={section} style={{ textDecoration: "none" }}>{section}</button>
+                    <button 
+                    className='section-list-button' 
+                    onClick={() => {setSection(section)}} 
+                    key={section} 
+                    style={{ textDecoration: "none" }}>{section}</button>
                 </Link>  
   })
     return (

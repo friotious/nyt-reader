@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Nav.css'
 import { Link } from "react-router-dom";
 import { TextField } from '@mui/material';
 
 
-const Nav = ({setArticles, articles}) => {
+const Nav = () => {
     const [inputText, setInputText] = useState("");
     let inputHandler = (e) => {
         var lowerCase = e.target.value.toLowerCase();
@@ -25,5 +25,5 @@ const Nav = ({setArticles, articles}) => {
         </div>
     );
 }
-
+//onClick={() => handleClick()} 
 export default Nav;
