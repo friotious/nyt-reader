@@ -44,7 +44,6 @@ const App = () => {
         throw new Error();
       }
       }).then(res => {
-        console.log(res.results)
         setArticles(articleCleaner(res.results)) 
       })
       .catch(err => alert(err));
