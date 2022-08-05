@@ -7,9 +7,12 @@ const ArticleListContainer = ({articles, section}) => {
 
 
     const articleList = articles.map((article) => {
-        return  <Link to={`/article-detail/${article.id}`} id={article.id} key={article.id} style={{ textDecoration: "none" }}>
-                    <ListArticle article={article} id={article.id} key={article.id} />
-                </Link>
+        if (articles) {
+        return <Link to={`/article-detail/${article.id}`} id={article.id} key={article.id} style={{ textDecoration: "none" }}>
+                        <ListArticle article={article} id={article.id} key={article.id} />
+                   </Link>
+        }
+            else { return <div>Nothing to report...</div> }      
     })
     return (
         <>

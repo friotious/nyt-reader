@@ -8,14 +8,14 @@ import ArticleListContainer from '../Components/articleListContainer/ArticleList
 import DetailArticle from "./detailArticle/DetailArticle";
 import { v4 as uuidv4 } from 'uuid';
 
-const apiKey = process.env.REACT_APP_API_KEY
 const App = () => {
-  let { articleId } = useParams()
+  const apiKey = process.env.REACT_APP_API_KEY
   const [section, setSection] = useState('home')
   const [articles, setArticles] = useState([])
   const [detail, setDetail] = useState({})
+  let { articleId, sectionId } = useParams()
 
-  // filter API data
+  // filter APIcall data
   const articleCleaner = data => {
     return data.map(article => {
       return {
@@ -26,10 +26,15 @@ const App = () => {
         url: article.url,
         byline: article.byline,
         multimedia: article.multimedia,
-        shortUrl: article.short_url
+        shortUrl: article.short_url,
+        des_facet: article.des_facet,
+        org_facet: article.org_facet,
+        per_facet: article.per_facet,
+        geo_facet: article.geo_facet
     }
     })
   }
+  
   //API call
   const getArticles = (section) => {
     return fetch(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${apiKey}`)
@@ -40,6 +45,7 @@ const App = () => {
         throw new Error();
       }
       }).then(res => {
+        console.log(res.results)
         setArticles(articleCleaner(res.results)) 
       })
       .catch(err => alert(err));
@@ -47,15 +53,13 @@ const App = () => {
 
 useEffect(() => {
   setDetail(getDetailArticle(articleId))
-
 }, [articleId])
 
  useEffect(() => {
   getArticles(section)
- }, [])
+ }, [section])
 
 const getDetailArticle = () => {
-  console.log(articles.filter(article => article.id === articleId))
   return articles.filter(article => article.id === articleId)
 }
 
@@ -67,7 +71,12 @@ const getDetailArticle = () => {
         <Route path='/' 
                element={< ArticleListContainer 
                articles={articles} 
-               section={section} 
+               section={'home'} 
+               setDetail={setDetail}/>} />
+        <Route path='/:sectionId' 
+               element={< ArticleListContainer 
+               articles={articles} 
+               section={sectionId} 
                setDetail={setDetail}/>} />
         <Route path='article-detail/:articleId' 
                element={<DetailArticle detail={articles}/>}

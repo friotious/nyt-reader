@@ -4,9 +4,10 @@
     border: solid darkgray;
     border-radius: 5px;
     padding: 20px 20px 20px 20px;
+    margin: 20px
 }
 
 .la-img {
-    height: 100px;
+    height: 200px;
     width: auto;
 }
