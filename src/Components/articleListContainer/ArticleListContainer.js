@@ -5,7 +5,6 @@ import './ArticleListContainer.css'
 
 const ArticleListContainer = ({articles, section}) => {
  const { sectionId } = useParams()
-console.log(useParams())
     const articleList = articles.map((article) => {
         if (articles) {
         return <Link to={`/article-detail/${article.id}`} id={article.id} key={article.id} style={{ textDecoration: "none" }}>

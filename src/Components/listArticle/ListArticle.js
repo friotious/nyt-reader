@@ -6,7 +6,11 @@ const ListArticle = ({article}) => {
     const [section, setSection] = useState('home')
    const checkForImage = () =>  {
     if (article.title === "") {
-        return <p>this article is missing...</p>
+         return <>
+         <p>this article is missing some info</p> 
+         <img className='la-img' src={article.multimedia[1].url} alt={article.multimedia[1].caption}></img>
+         
+         </>
     }
     if (article.multimedia === null) {
         return  <>
