@@ -13,17 +13,16 @@ const Nav = () => {
     return (
         <div className='Nav' >
             <Link to='/' className='app-name' style={{ textDecoration: "none" }}> 
-                <h1>NYT Reader</h1>
+                <h1>NY Times Reader</h1>
             </Link>
-            <TextField
+            {/* <TextField
           id="outlined-basic"
           onChange={inputHandler}
           variant="outlined"
           fullWidth
           label="Search"
-        />
+        /> */}
         </div>
     );
 }
-//onClick={() => handleClick()} 
 export default Nav;

@@ -21,7 +21,7 @@ const SectionSelect = ({setSection}) => {
   })
     return (
         <div className='SectionSelect'>
-            <h2>Sections</h2>
+            {/* <h2>Sections</h2> */}
             {sectionList}
         </div>
     );

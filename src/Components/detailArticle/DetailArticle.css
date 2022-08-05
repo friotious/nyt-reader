@@ -1,5 +1,13 @@
 .DetailArticle {
     height: 80vh;
     width:75vw;
+    padding: 25px;
     
+}
+
+.da-img {
+    margin-top: 2%;
+    border-radius: .5%;
+    width: 80%;
+    height: auto;
 }

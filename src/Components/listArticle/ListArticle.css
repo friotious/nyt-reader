@@ -1,13 +1,18 @@
 .list-article {
-    height: 300px;
-    width: 400px;
-    border: solid darkgray;
-    border-radius: 5px;
+    height: 200px;
+    width: 300px;
+    border: 1px solid darkgray;
+    border-radius: 2px;
     padding: 20px 20px 20px 20px;
     margin: 20px
 }
 
+.la-title {
+    color: black;
+}
+
 .la-img {
-    height: 200px;
+    border-radius: 5%;
+    height: 110px;
     width: auto;
 }
