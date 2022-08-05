@@ -1,9 +1,42 @@
 .SectionSelect {
     height: 80vh;
     width: 15vw;
+    min-width: 140px;
+    max-width: 200px;
     display: flex;
     flex-direction: column;
     padding-left: 2%;
+    margin-top: 5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
     
 }
+
+.section-list-button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 11px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .2s;
+    border: 1px solid transparent;
+    letter-spacing: 1px;
+    min-width: 140px;
+    margin: 1%;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 300;
+    text-align: center;
+    color: black;
+    background-color: #F9EAD7;
+    height: 26px;
+    
+}
+
+.section-list-button:hover{
+    background-color: #f2c487;
+}
+
 

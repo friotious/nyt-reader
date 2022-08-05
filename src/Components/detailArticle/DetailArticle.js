@@ -13,7 +13,6 @@ const DetailArticle = ({detail}) => {
             return <img className='da-img' src={art.multimedia[0].url} alt={art.multimedia[0].caption}></img>
         }
     } 
-    const details = detail.filter(d => d.id === articleId)
 
     return (
         <div className='DetailArticle'>

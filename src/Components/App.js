@@ -4,7 +4,6 @@ import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import Nav from '../Components/nav/Nav'
 import SectionSelect from './sectionSelect/SectionSelect'
 import ArticleListContainer from '../Components/articleListContainer/ArticleListContainer'
-//import {getArticles, testCall } from "../apiCalls";
 import DetailArticle from "./detailArticle/DetailArticle";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -66,6 +65,7 @@ const getDetailArticle = () => {
   return (
     <div className="App">
       <Nav />
+      <main className="main">
       <SectionSelect setSection={setSection}/>
       <Routes>
         <Route path='/' 
@@ -79,10 +79,10 @@ const getDetailArticle = () => {
                section={sectionId} 
                setDetail={setDetail}/>} />
         <Route path='article-detail/:articleId' 
-               element={<DetailArticle detail={articles}/>}
-            
+               element={<DetailArticle detail={articles}/>}   
           />
       </Routes>
+      </main>
     </div>
   );
 }

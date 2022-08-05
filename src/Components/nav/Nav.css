@@ -1,7 +1,6 @@
 .Nav {
     background-color: antiquewhite;
     height: 10vh;
-   
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,6 +14,7 @@
     width: 100vw; 
     color:black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 26px;
+    font-size: 100%;
+    letter-spacing: 2px;
 }
 

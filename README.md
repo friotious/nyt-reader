@@ -3,15 +3,28 @@
 
 ## Intro
 
+Article display react app from NYT API to display sets of articles by 26 different sections. 
+
 ##  Tech
 
 - React w/hooks | Router | Cypress
 
 ## Features
 
+- list view of articles
+- detailed view of specific article with nyt.com link
+- filter articles by section
+
+## Screenshots
+
+![](ScreenShothomepage.png)
+![](ScreenShotdetailpage.png)
 
 ## Future Extensions
 
+- Search bar functionality
+- Dynamic article card list view
+- Different sized cards, multiple sections
 
 ## Set Up
 1. Fork repo from github -  [GitHub Repo](https://github.com/friotious/nyt-reader)
